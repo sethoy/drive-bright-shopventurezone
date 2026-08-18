@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive Bright — Anti-Glare Night Driving Glasses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1671d8;
+    --blue-dark:#0d5bb8;
+    --navy:#161a22;
+    --gray-bg:#f4f6f9;
+    --black:#0b0b0f;
+    --yellow:#ffc107;
+    --gold:#f5a623;
+    --green:#1dbf73;
+    --red:#e5484d;
+    --line:#e4e7ee;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',sans-serif; color:var(--navy); background:#fff; line-height:1.5;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif; font-weight:700; line-height:1.2;}
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blue); color:#fff; font-weight:700; font-size:15px;
+    padding:14px 28px; border-radius:8px; border:none; cursor:pointer;
+    box-shadow:0 6px 16px rgba(22,113,216,.35);
+  }
+  .btn:hover{background:var(--blue-dark);}
+  .stock-bar{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); margin-top:10px;}
+  .stock-dots{display:flex; gap:3px;}
+  .stock-dots span{width:8px; height:8px; border-radius:2px; background:var(--red);}
+  .stock-dots span:nth-child(4), .stock-dots span:nth-child(5){background:var(--line);}
+
+  /* placeholder image blocks */
+  .ph{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:repeating-linear-gradient(135deg, #eef1f6, #eef1f6 10px, #e5e9f0 10px, #e5e9f0 20px);
+    border:1.5px dashed #c3cad6; border-radius:12px; color:#8a93a3;
+    font-size:13px; font-weight:600; padding:16px;
+  }
+
+  /* promo bar */
+  .promo{background:#acf4a1; text-align:center; font-size:18px; font-weight:700; padding:10px 16px; color:var(--navy);}
+  .promo span.code{background:var(--navy); color:#fff; padding:3px 10px; border-radius:4px; margin:0 4px;}
+
+  /* header */
+  header{border-bottom:1px solid var(--line); padding:16px 0;}
+  header .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{font-family:'Poppins',sans-serif; font-weight:800; font-size:22px; display:flex; align-items:center; gap:8px;}
+  .logo .dot{width:10px; height:10px; background:var(--blue); border-radius:50%; display:inline-block;}
+  nav{display:flex; align-items:center; gap:32px; font-weight:600; font-size:15px;}
+  nav a.navlink:hover{color:var(--blue);}
+  .btn.small{padding:10px 20px; font-size:14px;}
+
+  /* trust bar */
+  .trustbar{display:flex; flex-wrap:wrap; gap:24px; align-items:center; font-size:13px; font-weight:600; color:var(--navy); padding:14px 0;}
+  .trustbar .stars{color:var(--gold);}
+  .trustbar .item{display:flex; align-items:center; gap:6px;}
+
+  /* hero */
+  .hero{padding:40px 0 60px;}
+  .hero .wrap{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .hero h1{font-size:40px; margin-bottom:18px;}
+  .hero h1 .accent{color:var(--blue);}
+  .hero ul{list-style:none; margin-bottom:26px;}
+  .hero ul li{display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; font-size:15px; font-weight:500;}
+  .hero ul li::before{content:"✓"; color:var(--green); font-weight:800;}
+  .hero .ph{height:420px;}
+
+  /* 3-step section */
+  .steps{background-color: #000; padding:48px 0;}
+  .steps h2{text-align:center; font-size:28px; margin-bottom:36px; color: #fff;}
+  .steps h2 .accent{color:var(--blue); text-decoration:underline;}
+  .steps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .step{display:flex; gap:14px; align-items:flex-start;}
+  .step .num{
+    flex-shrink:0; width:44px; height:44px; border-radius:50%; background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700;
+  }
+  .step h4{font-size:16px; margin-bottom:4px; color: #fff;}
+  .step p{font-size:13px; color:var(--muted);}
+
+  /* feature sections */
+  .feature{padding:70px 0;}
+  .feature .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .feature.reverse .wrap{direction:rtl;}
+  .feature.reverse .wrap > *{direction:ltr;}
+  .feature .eyebrow{color:var(--blue); font-weight:700; font-size:24px; margin-bottom:6px;}
+  .feature h2{font-size:26px; margin-bottom:16px;}
+  .feature p{color:var(--muted); font-size:15px;}
+  .feature .ph{height:280px;}
+  .feature .ph.tall{height:340px;}
+
+  .collage{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .collage .ph{height:150px;}
+
+  .badge-tag{
+    position:absolute; background:var(--navy); color:#fff; font-size:11px; font-weight:700;
+    padding:6px 10px; border-radius:4px; bottom:14px; left:14px;
+  }
+  .feature .ph.badged{position:relative;}
+
+  /* CTA repeat block */
+  .cta-block{text-align:center; padding:40px 0;}
+
+  /* reviews */
+  .reviews{padding:70px 0;}
+  .reviews h2{text-align:center; font-size:28px; margin-bottom:40px;}
+  .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .review-card{border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .review-card .ph{height:180px; border-radius:0;}
+  .review-body{padding:18px;}
+  .review-body .stars{color:var(--gold); font-size:14px; margin-bottom:8px;}
+  .review-body h4{font-size:15px; margin-bottom:2px;}
+  .review-body .date{font-size:12px; color:var(--muted); margin-bottom:8px;}
+  .review-body p{font-size:13px; color:#4b5563;}
+
+  /* comparison */
+  .compare{background:var(--black); color:#fff; padding:70px 0;}
+  .compare h2{text-align:center; font-size:28px; margin-bottom:36px;}
+  table.compare-table{width:100%; border-collapse:collapse; font-size:14px;}
+  table.compare-table th{padding:16px; font-weight:700; text-align:center; background:#15151c;}
+  table.compare-table th:first-child{background:transparent; text-align:left;}
+  table.compare-table th.brand{background:var(--blue); border-radius:10px 10px 0 0;}
+  table.compare-table td{padding:14px 16px; text-align:center; border-bottom:1px solid #26262f; font-weight:500;}
+  table.compare-table td:first-child{text-align:left; color:#c7cad3;}
+  table.compare-table td.brand-col{background:rgba(22,113,216,.12);}
+  .check{color:var(--green); font-weight:800; font-size:16px;}
+  .cross{color:#8a93a3; font-weight:800; font-size:16px;}
+
+  /* comfort/condition section */
+  .comfort{padding:70px 0; text-align:center;}
+  .comfort h2{font-size:26px; margin-bottom:14px;}
+  .comfort > .wrap > p{max-width:640px; margin:0 auto 40px; color:var(--muted); font-size:15px;}
+  .comfort-imgs{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:50px;}
+  .comfort-imgs .ph{height:320px;}
+  .conditions h3{font-size:18px; margin-bottom:24px;}
+  .cond-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:20px;}
+  .cond{display:flex; flex-direction:column; align-items:center; gap:10px; font-size:13px; font-weight:600;}
+  .cond .icon{
+    width:56px; height:56px; border-radius:50%; background:var(--gray-bg);
+    display:flex; align-items:center; justify-content:center; font-size:22px;
+  }
+
+  /* guarantee */
+  .guarantee{background:var(--black); color:#fff; padding:60px 0;}
+  .guarantee .wrap{display:flex; align-items:center; gap:36px;}
+  .guarantee .seal{
+    flex-shrink:0; width:110px; height:110px; border-radius:50%; background:var(--yellow); color:var(--navy);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:800; font-size:13px; text-align:center;
+  }
+  .guarantee h2{font-size:24px; margin-bottom:10px;}
+  .guarantee p{color:#c7cad3; font-size:14px; max-width:640px;}
+
+  /* offer repeat (hero-like) */
+  .offer{padding:60px 0;}
+  .offer .wrap{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .offer .stars-row{color:var(--gold); font-size:14px; margin-bottom:10px;}
+  .offer h2{font-size:28px; margin-bottom:6px;}
+  .offer .limited{color:var(--blue); font-size:22px; margin-bottom:16px;}
+  .offer ul{list-style:none; margin-bottom:22px;}
+  .offer ul li{display:flex; gap:10px; font-size:15px; font-weight:500; margin-bottom:8px;}
+  .offer ul li::before{content:"✓"; color:var(--green); font-weight:800;}
+  .offer .ph{height:380px;}
+
+  /* FAQ */
+  .faq{background:var(--black); color:#fff; padding:60px 0 80px;}
+  .faq h2{text-align:center; font-size:26px; margin-bottom:32px;}
+  .faq-item{border-bottom:1px solid #262631; padding:18px 4px;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:15px;}
+  .faq-q .plus{font-size:20px; color:var(--blue); transition:transform .2s;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; font-size:14px; color:#c7cad3; transition:max-height .25s ease;}
+  .faq-item.open .faq-a{max-height:200px; padding-top:12px;}
+
+  /* footer */
+  footer{padding:24px 0; text-align:center; font-size:12px; color:var(--muted); border-top:1px solid var(--line);}
+  footer .links{display:flex; justify-content:center; gap:18px; margin-bottom:8px; flex-wrap:wrap;}
+
+  @media (max-width:860px){
+    .hero .wrap, .feature .wrap, .offer .wrap, .comfort-imgs{grid-template-columns:1fr;}
+    .feature.reverse .wrap{direction:ltr;}
+    .steps-grid, .review-grid{grid-template-columns:1fr;}
+    .cond-grid{grid-template-columns:repeat(3,1fr); row-gap:28px;}
+    table.compare-table{font-size:12px;}
+    nav{display:none;}
+    .guarantee .wrap{flex-direction:column; text-align:center;}
+  }
+  /* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+}
+
+/* Section Container */
+.anti-glare-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title-blue {
+    color: #27a2db; /* Bright light blue matching the image */
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+}
+
+.title-dark {
+    color: #222222;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Layout for Image and Text */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.image-column {
+    flex: 1;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-column {
+    flex: 1;
+    padding-right: 20px;
+}
+
+/* Typography for Right Column */
+.text-column h3 {
+    font-size: 24px;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.text-column p {
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .title-blue, 
+    .title-dark {
+        font-size: 26px;
+    }
+    
+    .text-column {
+        padding-right: 0;
+    }
+}
+/* Ergonomic Section Container */
+.ergonomic-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Layout for Text and Image */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Column Sizing */
+.text-column {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.image-column {
+    flex: 1;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Typography */
+.text-column h2 {
+    font-size: 26px;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+.text-column p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .text-column {
+        padding-right: 0;
+        text-align: center;
+    }
+}
+/* Full-Direction Light Protection Section */
+.light-protection-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Layout for Image and Text */
+.light-protection-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Column Sizing */
+.light-protection-image-col {
+    flex: 1;
+}
+
+.protection-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.light-protection-text-col {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* Typography */
+.light-protection-text-col h2 {
+    font-size: 26px;
+    color: #222222; /* Dark tone to match the design */
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+.light-protection-text-col p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .light-protection-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .light-protection-text-col {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+/* Unmatched Quality and Durability Section */
+.durability-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Layout for Text and Image */
+.durability-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Column Sizing */
+.durability-text-col {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.durability-image-col {
+    flex: 1;
+}
+
+.durability-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Typography */
+.durability-text-col h2 {
+    font-size: 26px;
+    color: #1a2533; /* Dark navy/slate to match the specific header color in the image */
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+.durability-text-col p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .durability-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .durability-text-col {
+        padding-right: 0;
+        text-align: center;
+    }
+}
+/* Call to Action Section */
+.cta-section {
+    width: 100%;
+    margin: 40px auto 60px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-wrapper {
+    text-align: center;
+    width: 100%;
+    max-width: 450px; /* Constrains the image to a realistic button size */
+}
+
+/* Button Link Styling & Hover Effects */
+.cta-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease;
+}
+
+.cta-link:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+    filter: brightness(1.05); /* Slight brighten effect on hover */
+}
+
+.cta-link:active {
+    transform: scale(0.98); /* Click depression effect */
+}
+
+/* CTA Image Styling */
+.cta-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Adds a subtle shadow to make the image pop off the page like a real button */
+    filter: drop-shadow(0 6px 12px rgba(0, 100, 210, 0.2)); 
+}
+/* 1. Establish structural positioning on the body element */
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* 2. Style the transparent click overlay block */
+.global-page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Covers everything on the standard layout layer */
+    cursor: pointer;
+    background-color: transparent;
+}
+</style>
+</head>
+<body>
+<a href="https://www.macharecords.com/31CRWZR/C8WC99G/" class="global-page-overlay" aria-label="View Offer Details"></a>
+<div class="promo">GET 50% OFF NOW! USE PROMO CODE: <span class="code">BRIGHT25</span> — ENDS AT MIDNIGHT</div>
+
+<header>
+  <div class="wrap">
+    <div class="logo"><img src="images/logo.webp" style="height: 30px;"/></div>
+    <nav>
+      <a class="navlink" href="#">Why Drive Bright</a>
+      <a class="navlink" href="#reviews">Reviews</a>
+      <a class="btn small" href="#order">Order Now. Get 50% OFF</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap trustbar">
+  <div class="item"><span class="stars">★★★★★</span> 4.8/5 Based On 21,392+ Happy &amp; Safe Customers</div>
+  <div class="item">🚚 Fast and Easy Shipping</div>
+  <div class="item">⏳ Limited Time Discount</div>
+  <div class="item">🛡️ Over 20,000+ sold</div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Stay Safe While Driving At Night <span class="accent">with Anti-Glare Eyewear!</span></h1>
+      <ul>
+        <li>Enhanced night vision</li>
+        <li>Reduce glare and eye strain</li>
+        <li>Lightweight, durable, and comfortable frames</li>
+        <li>Fit over glasses</li>
+        <li>Wrap around design</li>
+      </ul>
+      <a id="order" class="btn" href="#">Order Now. Get 50% OFF →</a>
+      <div class="stock-bar">
+        <span>Ship by 13th Aug | Stock Levels:</span>
+        <div class="stock-dots"><span></span><span></span><span></span><span></span><span></span></div>
+        <span>LOW</span>
+      </div>
+    </div>
+    <img src="images/Screenshot 2026-08-12 012630.png">
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>The Ultimate Experience<br>Like <span class="accent">Drive Bright Eyes</span></h2>
+    <div class="steps-grid">
+      <div class="step">
+        <img src="images/tick-blue.webp" style="width: 16%;"/>
+        <div><h4>Select Your Glasses</h4><p>Pick from Our Exclusive List of Packages</p></div>
+      </div>
+      <div class="step">
+        <img src="images/fastdel-ico.webp" style="width: 16%;"/>
+        <div><h4>Fast and Easy Delivery</h4><p>Arrives 2-5 days after your purchase</p></div>
+      </div>
+      <div class="step">
+        <img src="images/shield-ico.webp" style="width: 10%;"/>
+        <div><h4>Improve your Night Vision</h4><p>Feel at ease with a stronger visual experience</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="anti-glare-section">
+        <div class="section-header">
+            <h2 class="title-blue">Crystal Clear Vision, Superior Safety:</h2>
+            <h2 class="title-dark">The Ultimate Anti-Glare Glasses!</h2>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="image-column">
+                <img src="images/feat-01.webp" alt="Night driving comparison with and without glare" class="feature-image">
+            </div>
+            
+            <div class="text-column">
+                <h3>Like Switching to High-Def<br>for Night Driving</h3>
+                <p>Integrated with anti-glare coating, gradient filters, and advanced optical technology, GlareCut technology aims to minimize nighttime glare while maintaining overall clarity and realism across the entire field of vision. It provides the best optical performance at night, offering drivers greater comfort and a stronger visual experience.</p>
+            </div>
+        </div>
+    </section>
+    <section class="ergonomic-section">
+        <div class="content-wrapper">
+            <div class="text-column">
+                <h2>Ergonomic Design One Size Fits All</h2>
+                <p>Drive Bright Glasses are tailored for prescription eyewear users, seamlessly pairing with RX glasses, myopia glasses, and reading glasses, providing unparalleled convenience. They are also suitable for those without prescription eyewear, catering to the needs of everyone.</p>
+            </div>
+            
+            <div class="image-column">
+                <img src="images/feat-02.webp" alt="Four different people comfortably wearing Drive Bright anti-glare glasses" class="feature-image">
+            </div>
+        </div>
+    </section>
+    <section class="light-protection-section">
+    <div class="light-protection-wrapper">
+        <div class="light-protection-image-col">
+            <img src="images/feat-03.webp" alt="Wraparound design fit over glasses showing full direction light protection" class="protection-image">
+        </div>
+        
+        <div class="light-protection-text-col">
+            <h2>Full-Direction Light Protection</h2>
+            <p>These anti-glare glasses boast a distinctive wrap-around style. The large front lenses and upgraded side lenses offer extensive coverage, minimizing interference from dazzling glare in all directions to the maximum and expanding the field of vision.</p>
+        </div>
+    </div>
+</section>
+
+<section class="durability-section">
+    <div class="durability-wrapper">
+        <div class="durability-text-col">
+            <h2>Unmatched Quality and Durability</h2>
+            <p>Featuring a robust TR90 frame and lenses crafted from reinforced 1.1mm thick TAC material, these glasses are drop-resistant, shatterproof, and built to last. It has a usage lifespan that exceeds expectations - be your last pair!</p>
+        </div>
+        
+        <div class="durability-image-col">
+            <img src="images/feat-04.webp" alt="Demonstration of unbreakable TR90 glasses frame bending" class="durability-image">
+        </div>
+    </div>
+</section>
+<section class="cta-section">
+    <div class="cta-wrapper">
+       <img src="images/Screenshot 2026-08-12 040459.png"/>
+    </div>
+</section>
+
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2>Find Out Why Over 21,392+ People<br>Trust Drive Bright</h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="ph" style="background: url('images/cam-rev1.webp');background-size: cover;background-position-y: -30px;"></div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <h4>Love these!</h4>
+          <div class="date">Reviewed on November 5, 2023</div>
+          <p>I love the glasses because they help my eyes while driving, especially in the wintertime when there's rain snow and different types of weather.</p>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="ph" style="background: url('images/cam-rev2.webp');background-size: cover;background-position-y: -30px;"></div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <h4>Great Fit &amp; Quality!</h4>
+          <div class="date">Reviewed on September 15, 2023</div>
+          <p>They just make driving much easier by knocking down the glare. I had two pairs from a local store, which both broke. These glasses are quality tough and durable.</p>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="ph" style="background: url('images/cam-rev3.webp');background-size: cover;background-position-y: -30px;"></div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <h4>Solid Product, Cool Features!</h4>
+          <div class="date">Reviewed on October 23, 2023</div>
+          <p>I hate the LED glare from headlights and they help quite a bit. I didn't want to drive at night anymore because of those too-bright headlights. These glasses really help!</p>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="ph" style="background: url('images/cam-rev4.webp');background-size: cover;background-position-y: -30px;"></div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <h4>A Daily Necessity!</h4>
+          <div class="date">Reviewed on January 22, 2024</div>
+          <p>This thing rocks! They are not heavy or uncomfortable. Good price and a good fit. Really love these, can't drive without them now!</p>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="ph" style="background: url('images/cam-rev5.webp');background-size: cover;background-position-y: -30px;"></div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <h4>Cool and Stylish!</h4>
+          <div class="date">Reviewed on February 13, 2024</div>
+          <p>My evening drive, usually stressful due to blinding headlights on a busy, hilly road, was great with these glasses.</p>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="ph" style="background: url('images/cam-rev6.webp');background-size: cover;background-position-y: -30px;"></div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <h4>Crazy Easy to Use!</h4>
+          <div class="date">Reviewed on October 7, 2023</div>
+          <p>Received these today and OMG, they're brilliant! Great design, comfortable fit, and super stylish. Great gifts too!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <h2>How Does Drive Bright Compare</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="brand">★★★★★<br>DRIVE BRIGHT</th>
+          <th>Generic Brand</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>GlareCut Technology</td><td class="brand-col"><span class="check">✓</span></td><td><span class="cross">✕</span></td></tr>
+        <tr><td>Peripheral Visions without Glare</td><td class="brand-col"><span class="check">✓</span></td><td><span class="cross">✕</span></td></tr>
+        <tr><td>Comfort with/without Glasses</td><td class="brand-col"><span class="check">✓</span></td><td><span class="cross">✕</span></td></tr>
+        <tr><td>Wrap Around Design</td><td class="brand-col"><span class="check">✓</span></td><td><span class="cross">✕</span></td></tr>
+        <tr><td>High-Elastic TR90 Material</td><td class="brand-col"><span class="check">✓</span></td><td><span class="cross">✕</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cta-block">
+    <a class="btn" href="#order">Order Now. Get 50% OFF →</a>
+    <div class="stock-bar" style="justify-content:center; color:#c7cad3;">
+      <span>Ship by 13th Aug | Stock Levels:</span>
+      <div class="stock-dots"><span></span><span></span><span></span><span></span><span></span></div>
+      <span>LOW</span>
+    </div>
+  </div>
+</section>
+
+<section class="comfort">
+  <div class="wrap">
+    <h2>Comfort and Style Together<br>Your Ideal Choice</h2>
+    <p>The world's first eyewear designed to counteract glare from LED headlights during night driving, providing drivers with best nighttime safety protection. They minimize reflections, control scattered light, and reduce glare, enhancing visibility at night and in adverse weather conditions such as fog, overcast, rainy days, and low-light conditions.</p>
+    
+      <img src="images/feat-main.webp"/>
+      
+    
+    <div class="conditions">
+      <h3>The Smart Solution for Any Condition</h3>
+      <div class="cond-grid">
+        <div class="cond"><div class="icon">🌙</div>Night Driving</div>
+        <div class="cond"><div class="icon">🌫️</div>Fog</div>
+        <div class="cond"><div class="icon">🌧️</div>Rain</div>
+        <div class="cond"><div class="icon">☁️</div>Overcast</div>
+        <div class="cond"><div class="icon">💨</div>Wind Proof</div>
+        <div class="cond"><div class="icon">🛡️</div>Dustproof</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="wrap">
+    <img src="images/90-garuntee.webp" style="height: 200px;"/>
+    <div>
+      <h2>90 Days Money Back Guarantee</h2>
+      <p>We hope you enjoy your Drive Bright glasses, just like our 21,392+ satisfied and secure customers. However, if for any reason you're not completely satisfied with your purchase, simply contact our friendly customer support team. We'll guide you through the hassle-free return process, no questions asked.</p>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap">
+    <div class="ph" style="background-image: url('images/Screenshot\ 2026-08-12\ 012630.png'); background-size: cover;"></div>
+    <div>
+      <div class="stars-row">★★★★★ 4.8/5 Based On 21,392+ Happy &amp; Safe Customers</div>
+      <h2>Keep You and Your loved ones safe on the road</h2>
+      <div class="limited">Special Limited Time Offer up to 50% OFF Don't miss Out!</div>
+      <ul>
+        <li>Enhanced night vision</li>
+        <li>Reduce glare and eye strain</li>
+        <li>Lightweight, durable, and comfortable frames</li>
+        <li>Fit over glasses</li>
+        <li>Wrap around design</li>
+      </ul>
+      <a class="btn" href="#order">Order Now. Get 50% OFF →</a>
+      <div class="stock-bar">
+        <span>Ship by 13th Aug | Stock Levels:</span>
+        <div class="stock-dots"><span></span><span></span><span></span><span></span><span></span></div>
+        <span>LOW</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap" style="max-width:800px;">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item open">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Is this pair of glasses suitable for long hours of driving?
+        <span class="plus">+</span>
+      </div>
+      <div class="faq-a">Yes, Drive Bright Glasses are designed with long-duration driving in mind. They are lightweight and comfortable to wear, featuring advanced optical technology in the lens design to ensure comfort even during continuous wear for 8 hours.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Is it suitable for all eyewear wearers?
+        <span class="plus">+</span>
+      </div>
+      <div class="faq-a">Yes, Drive Bright Glasses are designed to fit over prescription eyewear, including RX glasses, myopia glasses, and reading glasses, in addition to fitting those without prescription eyewear.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Can these be worn during the day?
+        <span class="plus">+</span>
+      </div>
+      <div class="faq-a">Yes, while Drive Bright Glasses are optimized for night driving, they can also be worn during the day to reduce glare from bright sunlight and improve visual comfort.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="#">Our Story</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Shipping &amp; Returns</a>
+    </div>
+    <div>Copyright © 2026 Drive Bright. All Rights Reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
